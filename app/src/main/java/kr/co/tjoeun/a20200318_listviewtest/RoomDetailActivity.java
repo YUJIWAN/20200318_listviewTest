@@ -32,6 +32,10 @@ public class RoomDetailActivity extends BaseActivity {
 //        첨부된 방 데이터를 받아서 화면에 출력.
         Room room = (Room) getIntent().getSerializableExtra("room");
 
+        binding.priceTxt.setText(room.getFormattedPrice());
+        binding.floorTxt.setText(room.getFloorToString());
+        binding.addressTxt.setText(room.getAddress());
+        binding.descTxt.setText(room.getDescription());
 
     }
 }

@@ -47,35 +47,37 @@ public class RoomAdapter extends ArrayAdapter<Room> {
 //        가격 설정 => setText에는 int값 넣지 말자.
 //        1만 이상? 억단위, 아니면? 숫자만 ,찍어서.
 
-        if (data.getPrice() >= 10000) {
+//        if (data.getPrice() >= 10000) {
+//
+//            int uk = data.getPrice() / 10000;
+//            int thousand = data.getPrice() % 10000;
+//
+//            priceTxt.setText(String.format("%d억 %,d만원", uk, thousand));
+//
+//        } else {
+////            ?억%,d로 가공.
+////            ?억?
+//
+//
+//            priceTxt.setText((String.format("%,d", data.getPrice())));
+//        }
+//
+        priceTxt.setText(data.getFormattedPrice());
 
-            int uk = data.getPrice() / 10000;
-            int thousand = data.getPrice() % 10000;
-
-            priceTxt.setText(String.format("%d억 %,d", uk, thousand));
-
-        } else {
-//            ?억%,d로 가공.
-//            ?억?
-
-
-            priceTxt.setText((String.format("%,d", data.getPrice())));
-        }
-
-//        주소 / 층수 결합해서
-
-        String floorStr = "";
-        if (data.getFloor() > 0){
-            floorStr = String.format("%d층", data.getFloor());
-        }else if(data .getFloor() == 0){
-            floorStr = "반지하";
-
-        }else {
-            floorStr = String.format("지하 %d층", data.getFloor()*-1);
-        }
+////        주소 / 층수 결합해서
+//
+//        String floorStr = "";
+//        if (data.getFloor() > 0){
+//            floorStr = String.format("%d층", data.getFloor());
+//        }else if(data .getFloor() == 0){
+//            floorStr = "반지하";
+//
+//        }else {
+//            floorStr = String.format("지하 %d층", data.getFloor()*-1);
+//        }
 
 
-        addressTxtAndFloorTxt.setText(String.format("%s, %s", data.getAddress(), floorStr));
+        addressTxtAndFloorTxt.setText(String.format("%s, %s", data.getAddress(), data.getFloorToString()));
 
         descTxt.setText((data.getDescription()));
 
