@@ -3,6 +3,7 @@ package kr.co.tjoeun.a20200318_listviewtest;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -45,6 +46,10 @@ public class MainActivity extends BaseActivity {
 //                클릭 된 방의 정보를 목록에서 빼옴. position번째
                 Room clickedRoom = roomDatas.get(position);
 //                Toast.makeText(mContext, clickedRoom.getAddress(),Toast.LENGTH_SHORT).show();
+//                방 상세 화면으로 이동
+                Intent intent = new Intent(mContext, RoomDetailActivity.class);
+                intent.putExtra("room", clickedRoom);
+                startActivity(intent);
 
             }
         });
